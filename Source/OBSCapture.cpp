@@ -1002,3 +1002,12 @@ void OBS::MainAudioLoop()
     AvRevertMmThreadCharacteristics(hTask);
 }
 
+void OBS::RequestKeyframe(int waitTime)
+{
+    if(bRequestKeyframe && waitTime > keyframeWait)
+        return;
+
+    bRequestKeyframe = true;
+    keyframeWait = waitTime;
+}
+
